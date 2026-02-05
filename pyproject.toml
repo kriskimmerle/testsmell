@@ -1,0 +1,59 @@
+[project]
+name = "testsmell"
+version = "0.1.0"
+description = "Zero-dependency Python test smell detector for pytest and unittest"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [
+    { name = "Kris Kimmerle" }
+]
+keywords = [
+    "testing",
+    "pytest",
+    "unittest",
+    "test-quality",
+    "code-smell",
+    "static-analysis",
+    "linter",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+]
+
+[project.urls]
+Homepage = "https://github.com/kriskimmerle/testsmell"
+Repository = "https://github.com/kriskimmerle/testsmell"
+Issues = "https://github.com/kriskimmerle/testsmell/issues"
+
+[project.scripts]
+testsmell = "testsmell:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
