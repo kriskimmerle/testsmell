@@ -120,7 +120,7 @@ SUBOPTIMAL_PATTERNS = {
 }
 
 
-class TestSmellDetector(ast.NodeVisitor):
+class SmellDetector(ast.NodeVisitor):
     """AST visitor that detects test smells."""
     
     def __init__(self, file_path: str, source: str):
@@ -665,7 +665,7 @@ def scan_file(file_path: str) -> ScanResult:
         return result
     
     # Check if it looks like a test file
-    detector = TestSmellDetector(file_path, source)
+    detector = SmellDetector(file_path, source)
     if not detector.is_test_file:
         return result
     

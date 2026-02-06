@@ -11,7 +11,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from testsmell import (
-    TestSmellDetector,
+    SmellDetector,
     scan_file,
     scan_path,
     calculate_grade,
@@ -24,7 +24,7 @@ from testsmell import (
 def analyze_code(code: str, filename: str = "test_example.py") -> list[Smell]:
     """Helper to analyze code string and return smells."""
     code = textwrap.dedent(code)
-    detector = TestSmellDetector(filename, code)
+    detector = SmellDetector(filename, code)
     tree = ast.parse(code, filename=filename)
     detector.visit(tree)
     return detector.smells
